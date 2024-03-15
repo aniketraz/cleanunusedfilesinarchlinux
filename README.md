@@ -58,6 +58,27 @@ List unused
 ```
 sudo pacman -Qtdq
 ```
+What -Qtdq will do according to the man page is (-Q stands for querying the package database):
+
+       -d, --deps
+           Restrict or filter output to packages installed as dependencies. This option can be combined with -t for listing real orphans
+           - packages that were installed as dependencies but are no longer required by any installed package.
+
+       -t, --unrequired
+           Restrict or filter output to print only packages neither required nor optionally required by any currently installed package.
+           Specify this option twice to include packages which are optionally, but not directly, required by another package.
+
+       -q, --quiet
+           Show less information for certain query operations. This is useful when pacman’s output is processed in a script. Search will
+           only show package names and not version, group, and description information; owns will only show package names instead of
+           "file is owned by pkg" messages; group will only show package names and omit group names; list will only show files and omit
+           package names; check will only show pairs of package names and missing files; a bare query will only show package names rather
+           than names and versions.
+Which means that you have not directly installed this package, but it was installed as a dependency which was later removed. So if you are sure you want to keep this package (since you use it), you can just reinstall the package: sudo pacman -S linux-rt-manjaro and it should not be shown in the list of packages which get removed.
+
+Not sure if Manjaro in general handles things differently, such that any of the above information is not valid in that case. It should be valid for Arch itself.
+
+
 
 Remove unused
 ```
@@ -83,5 +104,9 @@ k0: "keep" 0 versions
 
 ## 6 Find and remove
 install rmlint package `sudo pacman -S rm lint`.
+
+
+use sudo pacman -Rs $(pacman -Qtdq)
+instead of sudo pacman -R $(pacman -Qtdq) otherwise you would have to run it multiple times in a row
 
 
