@@ -81,7 +81,7 @@ k0: "keep" 0 versions
 
 
 
-## 5 Find and remove
+## 6 Find and remove
 install rmlint package `sudo pacman -S rm lint`.
 
 
