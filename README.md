@@ -70,6 +70,17 @@ cache is located in ~/.cache
 ## 4 Config Files
 stored in ~/.config/
 
+
+## 5   Another thing I find now useful is to remove the cache of all uninstalled packages using:
+
+$ paccache -ruk0
+
+r: Remove packages
+u: specifies uninstalled packages,
+k0: "keep" 0 versions
+
+
+
 ## 5 Find and remove
 install rmlint package `sudo pacman -S rm lint`.
 
