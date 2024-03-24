@@ -1,6 +1,6 @@
 # cleanunusedfilesinarchlinux
 
-##Size of application in yay 
+# Size of application in yay 
 - yay -Scc
 
 ## Contents
