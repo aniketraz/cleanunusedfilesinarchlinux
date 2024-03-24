@@ -1,5 +1,8 @@
 # cleanunusedfilesinarchlinux
 
+##Size of application in yay 
+- yay -Scc
+
 ## Contents
 - Clean pkg cache
 - Remove unused packages (orphans)
